@@ -1,0 +1,31 @@
+{
+  "name": "cafelatte/library",
+  "type": "library",
+  "description": "Libraries are working based on Cafelatte Framework. It contains few function such as uploading, en-decrypting, image-resizing etc.",
+  "keywords": [
+    "cafelatte",
+    "framework",
+    "upload",
+    "encrypt",
+    "decrypt",
+    "image resizing"
+  ],
+  "homepage": "http://cafe-latte.co.kr",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Thorpe Lee(Gwangbok Lee)",
+      "email": "koangbok@gmail.com",
+      "homepage": "http://www.cafe-latte.co.kr"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "cafelatte/framework": "v1.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "CafeLatte\\Libraries\\": "src"
+    }
+  }
+}
