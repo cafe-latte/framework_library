@@ -385,7 +385,7 @@ class FileUploader
      */
     function getResult(): array
     {
-        return array("url" => $this->url, "fileNameAndPath" => $this->realFilename, "fileName" => $this->newFileName);
+        return array("url" => $this->url, "fileNameAndPath" => $this->realFilename, "fileName" => $this->newFileName . $this->getExtension());
 
     }
 
