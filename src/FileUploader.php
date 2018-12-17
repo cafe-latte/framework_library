@@ -74,10 +74,7 @@ class FileUploader
      */
     public static function create($subPath, array $files)
     {
-        if (self::$instance == NULL) {
-            self::$instance = new FileUploader($subPath, $files);
-        }
-        return self::$instance;
+        return new FileUploader($subPath, $files);
     }
 
 
@@ -427,4 +424,5 @@ class FileUploader
             }
         }
     }
+
 }
