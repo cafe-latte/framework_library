@@ -21,7 +21,7 @@
   ],
   "require": {
     "php": ">=7.0",
-    "cafelatte/framework": "dev-master"
+    "cafelatte/framework": "v1.1.*"
   },
   "autoload": {
     "psr-4": {
