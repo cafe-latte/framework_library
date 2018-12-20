@@ -56,8 +56,7 @@ class EnDecrypt
     {
 
         $ciphers = openssl_get_cipher_methods();
-        array_splice($ciphers, 0, count($ciphers) / 2);
-
+       
         if (!in_array($cipher, $ciphers)) {
             throw new InvalidLogicException("NO Support Cipher `{$cipher}`", 400);
         }
