@@ -210,10 +210,10 @@ Class ImageResize
 
 
     /**
-     * @param $type
+     * @param string $type
      * @return array
      */
-    private function getCriteria(string $type)
+    private function getCriteria(string $type): array
     {
         switch ($type) {
             case 'exact':
@@ -239,7 +239,7 @@ Class ImageResize
      * @param int $newHeight
      * @return array
      */
-    private function getRequestSize(int $newWidth, int $newHeight)
+    private function getRequestSize(int $newWidth, int $newHeight): array
     {
         return array('reSetWidth' => $newWidth, 'reSetHeight' => $newHeight);
     }
@@ -248,7 +248,7 @@ Class ImageResize
      * @param int $newHeight
      * @return array
      */
-    private function getHeightSize(int $newHeight)
+    private function getHeightSize(int $newHeight): array
     {
         $newReWidth = $newHeight * ($this->oldWidth / $this->oldHeight);
         return array('reSetWidth' => $newReWidth, 'reSetHeight' => $newHeight);
@@ -258,7 +258,7 @@ Class ImageResize
      * @param $newWidth
      * @return array
      */
-    private function getWidthSize($newWidth)
+    private function getWidthSize($newWidth): array
     {
         $newReHeight = $newWidth * ($this->oldHeight / $this->oldWidth);
         return array('reSetWidth' => $newWidth, 'reSetHeight' => $newReHeight);
@@ -269,7 +269,7 @@ Class ImageResize
      * @param int $newHeight
      * @return array
      */
-    private function getAutoSize(int $newWidth, int $newHeight)
+    private function getAutoSize(int $newWidth, int $newHeight): array
     {
         if ($this->oldHeight < $this->oldWidth) {
             $reSizeArray = $this->getWidthSize($newWidth);
@@ -321,7 +321,7 @@ Class ImageResize
      * get new file name, it must be unique
      * @return string
      */
-    private function getNewImageName()
+    private function getNewImageName(): string
     {
         return \sha1(\uniqid(\getmypid() . \rand(), true));
     }

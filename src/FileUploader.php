@@ -56,7 +56,6 @@ class FileUploader
      * upload folder
      */
     private $uploadPath;
-    private $fileName;
     private $prefixFolder;
     private $realFilename;
     private $newFileName;

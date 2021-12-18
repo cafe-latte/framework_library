@@ -22,8 +22,8 @@ class EnDecrypt
     /**
      * @var string
      */
-    CONST CIPHER_AES_128_CBC = "aes-128-cbc";
-    CONST CIPHER_AES_256_CBC = "aes-256-cbc";
+    const CIPHER_AES_128_CBC = "aes-128-cbc";
+    const CIPHER_AES_256_CBC = "aes-256-cbc";
 
     /**
      * @var null
@@ -52,11 +52,11 @@ class EnDecrypt
      * @param string $cipher
      * @return EnDecrypt|null
      */
-    public static function create(string $key, string $iv, $cipher = 'aes-256-cbc')
+    public static function create(string $key, string $iv, string $cipher = 'aes-256-cbc')
     {
 
         $ciphers = openssl_get_cipher_methods();
-       
+
         if (!in_array($cipher, $ciphers)) {
             throw new InvalidLogicException("NO Support Cipher `{$cipher}`", 400);
         }
@@ -75,7 +75,7 @@ class EnDecrypt
      * @param string $iv
      * @param string $cipher
      */
-    public function __construct(string $key, string $iv, $cipher)
+    public function __construct(string $key, string $iv, string $cipher)
     {
         $this->key = $key;
         $this->iv = $iv;
@@ -89,7 +89,7 @@ class EnDecrypt
      * @param bool $isRandomValue 랜덤값으로 출력할지 여부 (iv값을 고정 또는 새롭게 생성하느냐)
      * @return string
      */
-    public function encrypt(string $data, bool $isRandomValue = true)
+    public function encrypt(string $data, bool $isRandomValue = true): string
     {
         $encryption_key = base64_decode($this->key);
         if ($isRandomValue == true) {
@@ -107,10 +107,10 @@ class EnDecrypt
     /**
      * decrypt the encrypted string value
      *
-     * @param $data
+     * @param string $data
      * @return string
      */
-    public function decrypt(string $data)
+    public function decrypt(string $data): string
     {
         $encryption_key = base64_decode($this->key);
         list($encrypted_data, $iv) = explode('::', base64_decode(urldecode($data)), 2);
